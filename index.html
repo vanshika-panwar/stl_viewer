@@ -5,16 +5,11 @@
     <meta charset="utf-8">
     <title>ShoulderBone</title>
 </head>
-
-
 <body>
 
     <script src="js/three.js"></script>
     <script src="./STLLoader.js"></script>
     <script src="./OrbitControls.js"></script>
-    <!-- <script src="./three.js-master/src/math/Plane.js"></script> -->
-
-
     <script>
         var mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial())
         var light1 = new THREE.PointLight(0x696969, 10);
@@ -32,10 +27,6 @@
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 2000);
 
-        // const geometry = new THREE.PlaneGeometry( 900, 900, 900 );
-        // const material = new THREE.MeshPhongMaterial( {color: 0xaaaaaaa, side: THREE.DoubleSide} );
-        // const plane = new THREE.Mesh( geometry, material );
-        //scene.add( plane );
 
         const size = 1000;
         const divisions = 50;
@@ -44,14 +35,14 @@
         gridHelper.rotateOnAxis(new THREE.Vector3(1, 0, 0), 90 * (Math.PI / 180));
         scene.add(gridHelper);
 
-        //const optionalNormalMatrix = new THREE.Matrix3().getNormalMatrix( matrix );
+
         const renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight, false);
 
         document.body.appendChild(renderer.domElement);
         var controls = new THREE.OrbitControls(camera, renderer.domElement);
         var axhelper = new THREE.AxesHelper(1000);
-        //scene.add(axhelper);
+
         camera.position.set(0, -350, 100)
 
 
